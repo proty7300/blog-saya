@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlogKu — Beranda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#F5F0E8;--ink:#1A1208;--rust:#C4502A;--sand:#D9C9A8;--warm-gray:#8A7F72;--light:#FAF7F2;--ig:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+    html{scroll-behavior:smooth}
+    body{background:var(--light);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+    /* NAV */
+    header{border-bottom:1px solid var(--sand);padding:0 2rem;position:sticky;top:0;background:rgba(250,247,242,0.95);backdrop-filter:blur(8px);z-index:100;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:var(--ink);text-decoration:none}
+    .logo span{color:var(--rust)}
+    nav{display:flex;align-items:center;gap:0.3rem}
+    nav a.nav-link{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--warm-gray);text-decoration:none;margin-left:1.5rem;transition:color 0.2s}
+    nav a.nav-link:hover,nav a.nav-link.active{color:var(--rust)}
+    .btn-ig{display:inline-flex;align-items:center;gap:0.5rem;background:var(--ig);color:white;text-decoration:none;font-weight:500;border-radius:6px;transition:opacity 0.2s,transform 0.2s}
+    .btn-ig:hover{opacity:0.85;transform:translateY(-2px)}
+    .btn-ig svg{flex-shrink:0}
+    .btn-ig-sm{font-size:0.78rem;padding:0.45rem 1rem;margin-left:1.5rem}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;border-bottom:1px solid var(--sand);animation:fadeUp 0.8s ease both}
+    .hero-text{padding:5rem 3rem 5rem 4rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--sand)}
+    .hero-tag{font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--rust);margin-bottom:1.2rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:1.5rem}
+    .hero-title em{font-style:italic;color:var(--rust)}
+    .hero-excerpt{font-size:1rem;color:var(--warm-gray);max-width:42ch;margin-bottom:2.5rem}
+    .hero-buttons{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .btn-read{display:inline-flex;align-items:center;gap:0.6rem;background:var(--ink);color:var(--light);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.85rem 1.8rem;transition:background 0.2s,transform 0.2s}
+    .btn-read:hover{background:var(--rust);transform:translateX(4px)}
+    .btn-ig-md{font-size:0.82rem;padding:0.75rem 1.4rem;border-radius:4px}
+    .hero-image{background:var(--cream);position:relative;overflow:hidden;min-height:400px}
+    .hero-image-inner{position:absolute;inset:0;background:linear-gradient(135deg,#e8d5b7 0%,#c4a882 50%,#9a7a5a 100%);display:flex;align-items:center;justify-content:center}
+    .hero-quote{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:rgba(255,255,255,0.9);text-align:center;padding:2rem}
+    /* TICKER */
+    .ticker-wrap{background:var(--ink);color:var(--cream);overflow:hidden;padding:0.6rem 0;white-space:nowrap}
+    .ticker{display:inline-block;animation:ticker 25s linear infinite;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+    .ticker span{margin:0 3rem;color:var(--rust)}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* SECTION */
+    .section-label{display:flex;align-items:center;gap:1rem;font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:2.5rem}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--sand)}
+    .posts-section{max-width:1200px;margin:0 auto;padding:5rem 2rem}
+    .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 2rem}
+    .post-card{cursor:pointer;transition:transform 0.3s;animation:fadeUp 0.6s ease both}
+    .post-card:nth-child(1){animation-delay:0.1s}.post-card:nth-child(2){animation-delay:0.2s}.post-card:nth-child(3){animation-delay:0.3s}
+    .post-card:nth-child(4){animation-delay:0.4s}.post-card:nth-child(5){animation-delay:0.5s}.post-card:nth-child(6){animation-delay:0.6s}
+    .post-card:hover{transform:translateY(-6px)}
+    .post-thumb{width:100%;aspect-ratio:16/10;margin-bottom:1.2rem;position:relative;overflow:hidden}
+    .post-thumb-inner{position:absolute;inset:0;transition:transform 0.4s ease}
+    .post-card:hover .post-thumb-inner{transform:scale(1.05)}
+    .thumb-1{background:linear-gradient(135deg,#d4a96a,#8b5e3c)}.thumb-2{background:linear-gradient(135deg,#7a9e7e,#3d6b47)}
+    .thumb-3{background:linear-gradient(135deg,#8e7dbf,#5a4a8a)}.thumb-4{background:linear-gradient(135deg,#bf7d7d,#8a4040)}
+    .thumb-5{background:linear-gradient(135deg,#7db8bf,#3d7a82)}.thumb-6{background:linear-gradient(135deg,#bfbc7d,#8a873a)}
+    .post-category{font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);margin-bottom:0.5rem}
+    .post-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:0.6rem}
+    .post-excerpt{font-size:0.88rem;color:var(--warm-gray);line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .post-meta{display:flex;align-items:center;gap:0.8rem;font-size:0.75rem;color:var(--warm-gray)}
+    .post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--sand)}
+    /* FOOTER */
+    footer{border-top:1px solid var(--sand);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--warm-gray);flex-wrap:wrap;gap:1rem}
+    .footer-socials{display:flex;align-items:center;gap:1rem}
+    .footer-socials a{color:var(--warm-gray);text-decoration:none;transition:color 0.2s}
+    .footer-socials a:hover{color:var(--rust)}
+    .btn-ig-pill{font-size:0.75rem;padding:0.35rem 0.9rem;border-radius:20px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr}.hero-image{display:none}.hero-text{padding:3rem 1.5rem;border-right:none}.posts-grid{grid-template-columns:1fr}nav a.nav-link{display:none}}
+  </style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Blog<span>Ku</span></a>
+  <nav>
+    <a href="/" class="nav-link active">Beranda</a>
+    <a href="/teknologi.html" class="nav-link">Teknologi</a>
+    <a href="/lifestyle.html" class="nav-link">Lifestyle</a>
+    <a href="/tentang.html" class="nav-link">Tentang</a>
+    <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">✦ Artikel Pilihan</div>
+    <h1 class="hero-title">Membangun Website <em>Impian</em> Tanpa Modal Besar</h1>
+    <p class="hero-excerpt">Panduan lengkap cara deploy website gratis menggunakan Vercel, mulai dari nol hingga online dalam hitungan menit.</p>
+    <div class="hero-buttons">
+      <a href="/teknologi.html" class="btn-read">Baca Selengkapnya <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-md">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+        Ikuti di Instagram
+      </a>
+    </div>
+  </div>
+  <div class="hero-image"><div class="hero-image-inner"><div class="hero-quote">"Kode yang baik adalah puisi yang bisa dijalankan mesin."</div></div></div>
+</section>
+
+<div class="ticker-wrap"><div class="ticker">Teknologi <span>✦</span> Lifestyle <span>✦</span> Desain <span>✦</span> Produktivitas <span>✦</span> Tutorial <span>✦</span> Inspirasi <span>✦</span> Teknologi <span>✦</span> Lifestyle <span>✦</span> Desain <span>✦</span> Produktivitas <span>✦</span> Tutorial <span>✦</span> Inspirasi <span>✦</span></div></div>
+
+<section class="posts-section">
+  <div class="section-label">Artikel Terbaru</div>
+  <div class="posts-grid">
+    <article class="post-card" onclick="location.href='/teknologi.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-1"></div></div>
+      <div class="post-category">Teknologi</div>
+      <h2 class="post-title">Kenapa Next.js Jadi Pilihan Utama Developer 2025</h2>
+      <p class="post-excerpt">Framework React ini terus berkembang dengan fitur-fitur baru yang memudahkan pengembangan web modern.</p>
+      <div class="post-meta"><span>Ahmad Fauzi</span><div class="dot"></div><span>5 Mei 2025</span><div class="dot"></div><span>8 menit baca</span></div>
+    </article>
+    <article class="post-card" onclick="location.href='/lifestyle.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-2"></div></div>
+      <div class="post-category">Lifestyle</div>
+      <h2 class="post-title">5 Kebiasaan Pagi yang Meningkatkan Fokus Kerja</h2>
+      <p class="post-excerpt">Rutinitas sederhana yang bisa kamu mulai besok untuk membuat hari lebih produktif dan bermakna.</p>
+      <div class="post-meta"><span>Siti Rahma</span><div class="dot"></div><span>3 Mei 2025</span><div class="dot"></div><span>5 menit baca</span></div>
+    </article>
+    <article class="post-card" onclick="location.href='/teknologi.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-3"></div></div>
+      <div class="post-category">Teknologi</div>
+      <h2 class="post-title">Prinsip Desain UI yang Sering Dilupakan Pemula</h2>
+      <p class="post-excerpt">Dari typografi hingga whitespace — hal-hal kecil yang membuat perbedaan besar pada tampilan produk digital.</p>
+      <div class="post-meta"><span>Budi Santoso</span><div class="dot"></div><span>1 Mei 2025</span><div class="dot"></div><span>6 menit baca</span></div>
+    </article>
+    <article class="post-card" onclick="location.href='/teknologi.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-4"></div></div>
+      <div class="post-category">Teknologi</div>
+      <h2 class="post-title">Deploy Website ke Vercel dalam 10 Menit</h2>
+      <p class="post-excerpt">Langkah demi langkah cara menggunakan Vercel dari mendaftar hingga website kamu live di internet.</p>
+      <div class="post-meta"><span>Ahmad Fauzi</span><div class="dot"></div><span>28 Apr 2025</span><div class="dot"></div><span>7 menit baca</span></div>
+    </article>
+    <article class="post-card" onclick="location.href='/lifestyle.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-5"></div></div>
+      <div class="post-category">Lifestyle</div>
+      <h2 class="post-title">Hidup Minimalis di Era Digital yang Berlebihan</h2>
+      <p class="post-excerpt">Bagaimana mengurangi kebisingan digital dan menemukan fokus di tengah gempuran notifikasi tanpa henti.</p>
+      <div class="post-meta"><span>Dewi Lestari</span><div class="dot"></div><span>25 Apr 2025</span><div class="dot"></div><span>4 menit baca</span></div>
+    </article>
+    <article class="post-card" onclick="location.href='/tentang.html'">
+      <div class="post-thumb"><div class="post-thumb-inner thumb-6"></div></div>
+      <div class="post-category">Tentang</div>
+      <h2 class="post-title">Siapa di Balik Blog Ini?</h2>
+      <p class="post-excerpt">Kenalan lebih dekat dengan penulis blog dan cerita di balik pembuatan BlogKu dari nol.</p>
+      <div class="post-meta"><span>Admin</span><div class="dot"></div><span>20 Apr 2025</span><div class="dot"></div><span>3 menit baca</span></div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 BlogKu. Dibuat dengan ❤️</span>
+  <div class="footer-socials">
+    <a href="/teknologi.html">Teknologi</a>
+    <a href="/lifestyle.html">Lifestyle</a>
+    <a href="/tentang.html">Tentang</a>
+    <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+  </div>
+</footer>
+</body>
+</html>

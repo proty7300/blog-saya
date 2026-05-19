@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlogKu — Tentang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#F5F0E8;--ink:#1A1208;--rust:#C4502A;--sand:#D9C9A8;--warm-gray:#8A7F72;--light:#FAF7F2;--ig:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+    body{background:var(--light);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+    header{border-bottom:1px solid var(--sand);padding:0 2rem;position:sticky;top:0;background:rgba(250,247,242,0.95);backdrop-filter:blur(8px);z-index:100;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:var(--ink);text-decoration:none}
+    .logo span{color:var(--rust)}
+    nav{display:flex;align-items:center}
+    nav a.nav-link{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--warm-gray);text-decoration:none;margin-left:1.5rem;transition:color 0.2s}
+    nav a.nav-link:hover,nav a.nav-link.active{color:var(--rust)}
+    .btn-ig{display:inline-flex;align-items:center;gap:0.5rem;background:var(--ig);color:white;text-decoration:none;font-weight:500;border-radius:6px;transition:opacity 0.2s,transform 0.2s}
+    .btn-ig:hover{opacity:0.85;transform:translateY(-2px)}
+    .btn-ig-sm{font-size:0.78rem;padding:0.45rem 1rem;margin-left:1.5rem}
+    .btn-ig-lg{font-size:1rem;padding:1rem 2.2rem;border-radius:8px;box-shadow:0 4px 20px rgba(220,39,67,0.25)}
+    /* ABOUT */
+    .about-hero{max-width:760px;margin:0 auto;padding:6rem 2rem 3rem;text-align:center;animation:fadeUp 0.8s ease both}
+    .about-tag{font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--rust);margin-bottom:1rem}
+    .about-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem}
+    .about-title em{font-style:italic;color:var(--rust)}
+    .avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#d4a96a,#8b5e3c);margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3rem;color:white;font-weight:900}
+    .about-content{max-width:640px;margin:0 auto;padding:0 2rem 6rem}
+    .about-content p{font-size:1rem;color:var(--warm-gray);margin-bottom:1.5rem;line-height:1.8}
+    .about-content h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin:2.5rem 0 1rem}
+    .skill-list{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem}
+    .skill-tag{background:var(--cream);border:1px solid var(--sand);color:var(--ink);font-size:0.82rem;font-weight:500;padding:0.4rem 1rem;border-radius:20px}
+    .divider{height:1px;background:var(--sand);margin:2.5rem 0}
+    .contact-section{text-align:center;padding:2rem 0 4rem}
+    .contact-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:0.6rem}
+    .contact-sub{color:var(--warm-gray);margin-bottom:2rem}
+    footer{border-top:1px solid var(--sand);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--warm-gray);flex-wrap:wrap;gap:1rem}
+    .footer-socials{display:flex;align-items:center;gap:1rem}
+    .footer-socials a{color:var(--warm-gray);text-decoration:none;transition:color 0.2s}
+    .footer-socials a:hover{color:var(--rust)}
+    .btn-ig-pill{font-size:0.75rem;padding:0.35rem 0.9rem;border-radius:20px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:768px){nav a.nav-link{display:none}}
+  </style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Blog<span>Ku</span></a>
+  <nav>
+    <a href="/" class="nav-link">Beranda</a>
+    <a href="/teknologi.html" class="nav-link">Teknologi</a>
+    <a href="/lifestyle.html" class="nav-link">Lifestyle</a>
+    <a href="/tentang.html" class="nav-link active">Tentang</a>
+    <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+  </nav>
+</header>
+
+<div class="about-hero">
+  <div class="about-tag">✦ Tentang Saya</div>
+  <div class="avatar">B</div>
+  <h1 class="about-title">Halo, Saya <em>Penulis Blog</em> Ini</h1>
+</div>
+
+<div class="about-content">
+  <p>Selamat datang di BlogKu! Saya adalah seorang yang gemar menulis tentang teknologi, gaya hidup, dan hal-hal yang membuat hidup lebih bermakna.</p>
+  <p>Blog ini lahir dari keinginan untuk berbagi pengetahuan dan pengalaman — mulai dari tips coding, review tools, hingga cara hidup lebih seimbang di era digital yang serba cepat ini.</p>
+
+  <h2>Yang Saya Tulis</h2>
+  <div class="skill-list">
+    <span class="skill-tag">Teknologi</span>
+    <span class="skill-tag">Web Development</span>
+    <span class="skill-tag">Lifestyle</span>
+    <span class="skill-tag">Produktivitas</span>
+    <span class="skill-tag">Desain UI/UX</span>
+    <span class="skill-tag">Tutorial</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <p>Blog ini dibuat menggunakan HTML sederhana dan di-deploy gratis menggunakan Vercel. Bukti bahwa kamu tidak perlu modal besar untuk punya website yang keren!</p>
+
+  <div class="divider"></div>
+
+  <div class="contact-section">
+    <h2 class="contact-title">Ikuti Saya</h2>
+    <p class="contact-sub">Update terbaru dan konten behind the scenes ada di Instagram.</p>
+    <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-lg">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      @usernamekamu
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 BlogKu. Dibuat dengan ❤️</span>
+  <div class="footer-socials">
+    <a href="/">Beranda</a>
+    <a href="/teknologi.html">Teknologi</a>
+    <a href="/lifestyle.html">Lifestyle</a>
+    <a href="https://instagram.com/usernamekamu" target="_blank" class="btn-ig btn-ig-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+  </div>
+</footer>
+</body>
+</html>
